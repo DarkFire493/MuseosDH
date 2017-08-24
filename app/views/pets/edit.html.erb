@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Editar  Museo</h1>
+  <div class="row">
+    <div class="col-md-6">
+    <%= render 'form', pet: @pet %>
+    </div>
+  </div>
+   <%= link_to 'Mostrar', @pet, :class => "btn btn-primary" %> |
+   <%= link_to 'Regresar', pets_path, :class => "btn btn-primary", :style => "color: white" %>
+</div>

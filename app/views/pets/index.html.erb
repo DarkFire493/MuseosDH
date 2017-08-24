@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- elementos del slider-->
+    <link type="text/css" href="dist/skitter.css" media="all" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <scrpt type="text/javascript" src="dist/jquery.skitter.min.js"></script>
+    <!-- Init Skitter -->
+  <script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+      $('.skitter-large').skitter({
+        
+      });
+    });
+  </script>
+<!--termina elementos del slider-->
+
+
+    <title></title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/small-business.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Content -->
+    <br>
+    <div class="container">
+        <!-- Heading Row -->
+        <div class="row">
+            <div class="col-md-8">
+
+              <!-- start slider -->
+      <div id="page">
+
+        <div id="content" class="responsive">
+          <div class="skitter skitter-large with-dots">
+            <ul>
+              <li><a href="/show?id=8"><img src="http://i.imgur.com/iAHAH9Z.jpg" class="circles" ></a><div class="label_text"><p>El Museo de la Independencia se localiza dentro de un inmueble construido a finales del siglo XVIII por el filántropo don Francisco Miguel González... <a href="/show?id=8" class="btn btn-small btn-yellow">Más información</a></p></div></li>
+              <li><a href="/show?id=10"><img src="http://i.imgur.com/KSzoDoM.jpg" class="circlesInside" ></a><div class="label_text"><p>El Museo Bicentenario cuenta con un total de 827 piezas de la celebración del primer centenario de la Independencia, entre las que destacan joyas, armas, música... <a href="/show?id=10" class="btn btn-small btn-yellow">Más información</a></p></div></li>
+              <li><a href="/show?id=10"><img src="http://i.imgur.com/Dq3Njbt.jpg" class="circlesRotate" ></a><div class="label_text"><p>Durante la Guerra de Independencia la casa fue ocupada por diversos bandos y se dice, saqueada en varias ocasiones... <a href="/show?id=10" class="btn btn-small btn-yellow">Más información</a></p></div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+                  <!-- end slider -->
+                <!--<img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt=""> -->
+  </div>
+  <!-- /.col-md-8 -->
+  <div class="col-md-4">
+      <h1>Museos en la ciudad de Dolores Hidalgo</h1>
+      <p style="text-align: justify;">Esta aplicación te permitira echar un vistazo a los museos que existen en Dolores Hidalgo C.I.N. De una forma diferente nunca antes vista en este tipo de atracciónes!!</p>
+      <!--<a class="btn btn-primary btn-lg" href="#">Realidad aumentada</a> -->
+  </div>
+  <!-- /.col-md-4 -->
+</div>
+<!-- /.row -->
+<hr>
+<!-- Call to Action Well -->
+<div class="row">
+  <div class="col-lg-12">
+      <div class="well text-center" style="background-color: #e95420; color: white">
+          Dolores Hidalgo Cuna de la Independencia Nacional es un lugar lleno de riquezas culturales que tu puedes apreciar en sus museos!
+      </div>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+  <p id="notice"><%= notice %></p>
+
+  <div id="container" align="center">
+
+    <% @pets.each do |pet| %>
+    <div class="item" style="width: 100%; ">
+      <div class="thumbnail">
+        <%= pet.name %><br>
+        <a href="<%= show_path(:id => pet.id) %>"> <%= image_tag(pet.image, :class => 'img-responsive') %></a>
+        <br>
+        <%= pet.description %><br>
+        <% if user_signed_in? %>
+        <div class="buttons" style="margin-top:10px; margin-bottom:10px">
+          <%= link_to 'Mostrar', pet, :class => 'btn' %>
+          <%= link_to 'Editar', edit_pet_path(pet), :class => 'btn' %>
+          <%= link_to 'Eliminar', pet, method: :delete, data: { confirm: 'Esta seguro?' }, :class => 'btn' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+    <br>
+
+</div>
+
+<script type="text/javascript">
+    var $container = $('#container')
+        // options
+        $container.masonry({
+        columnWidth: 200,
+        itemSelector: '.item'
+    });
+
+  $(window).load(function(){
+    var $container = $('#container');
+        // options
+      $container.masonry({
+          columnWidth: 200,
+          itemSelector: '.item'
+    });
+  })
+</script>
+
+  </body>
+
+  
+</html>
+

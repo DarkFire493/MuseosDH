@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Eventos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre del Museo</th>
+      <th>Fecha del evento</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eventos.each do |evento| %>
+      <tr>
+        <%= evento.nombre %>
+        <%= evento.fecha %>
+        <%= evento.descripcion %>
+        <% if user_signed_in? %>
+        <%= link_to 'Show', evento %>
+        <%= link_to 'Edit', edit_evento_path(evento) %>
+        <%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Esta seguro?' } %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+<%= link_to 'New Evento', new_evento_path %>
+<% end %>

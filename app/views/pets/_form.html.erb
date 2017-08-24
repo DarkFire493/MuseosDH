@@ -1,0 +1,38 @@
+<%= form_with(model: pet, local: true) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :name, "Nombre" %>
+    <%= form.text_field :name, id: :pet_name, :class => 'form-control', :placeholder => "Nombre del Museo" %>
+  </div>
+  </div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :description, "Descripción" %>
+    <%= form.text_area :description, id: :pet_description, :class => 'form-control', :rows => "10", :cols => "30" %>
+  </div>
+  </div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :image, "Foto" %>
+    <%= form.file_field :image, id: :pet_image, :class => 'form-control' %>
+  </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class => "btn btn-primary"  %>
+  </div>
+<% end %>

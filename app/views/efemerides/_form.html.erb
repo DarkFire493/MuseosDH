@@ -1,0 +1,31 @@
+<%= form_with(model: efemeride, local: true) do |form| %>
+  <% if efemeride.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(efemeride.errors.count, "error") %> prohibited this efemeride from being saved:</h2>
+
+      <ul>
+      <% efemeride.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.number_field :numero, id: :efemeride_numero, :class => "form-control" %>
+  </div>
+  </div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, id: :efemeride_descripcion,  :class => 'form-control', :rows => "10", :cols => "30"  %>
+  </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  "Guardar", :class => "btn btn-primary"%>
+  </div>
+<% end %>

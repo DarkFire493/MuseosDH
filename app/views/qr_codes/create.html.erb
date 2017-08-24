@@ -1,0 +1,28 @@
+<br>
+<hr>
+<br>
+<div class="container" align="center"><h2>Imágen Generada</h2>
+  <%= image_tag("qrcodes/qr_image.png") %>
+  <br>
+  <%= link_to "Generar Otro Código", new_qr_code_path, :class => "btn btn-primary", :style => "color: white" %>
+</div>
+<br>
+<hr>
+<br>
+<div class="container" align="center" style="width: 100%; height: 100%;" ><h2>Código Puro</h2>
+	<table class="qr-code" >
+  <% @qr.modules.each_index do |x| %>
+    <tr>
+    <% @qr.modules.each_index do |y| %>
+     <% if @qr.dark?(x,y) %>
+      <td class="black"/>
+     <% else %>
+      <td class="white"/>
+     <% end %>
+    <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <br />
+  <br />
+</div>

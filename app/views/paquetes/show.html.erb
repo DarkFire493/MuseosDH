@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @paquete.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @paquete.tipo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @paquete.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_paquete_path(@paquete) %> |
+<%= link_to 'Back', paquetes_path %>

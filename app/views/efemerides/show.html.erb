@@ -1,0 +1,18 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @efemeride.numero %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @efemeride.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_efemeride_path(@efemeride) %> |
+<%= link_to 'Salir', efemerides_path %>
+
+</div>

@@ -1,0 +1,204 @@
+<div class="container">
+
+
+</div>
+<div class="jumbotron">
+  <div class="container" align="center" >
+    <div class="outer">
+      <%= image_tag(@pet.image, :style => 'box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); width:100%; height: 100%; ') %>
+        <div class="overlay">
+          <h1 class="titulos"><%= @pet.name %></h1>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" align="center">
+
+    <div class="col-md-8">
+      <div class="page-header">
+        <h2 style="display:inline"> Descripción </h2>
+      </div>
+      
+      <p><%= @pet.description %></p>
+      <br>
+      <hr>
+      <br>
+
+      <h2>Precios </h2>
+
+      <% @pet.precios.each do |precio| %>
+        <tr>
+          $<%= precio.precio %> ->
+          <%= precio.tipo %>
+          <% if user_signed_in? %>
+          <br><br>
+          <%= link_to 'Editar', edit_precio_path(precio), :class => "btn btn-primary" %><br><br>
+          <%= link_to 'Eliminar', precio, method: :delete, data: { confirm: 'Estas seguro?' }, :class => "btn btn-primary" %><br>
+        </tr>
+        <% end %>
+      <% end %>
+
+    <br>
+    <% if user_signed_in? %>
+    <%= link_to 'Nuevo Precio', new_precio_path(:id => @pet.id), :class => "btn btn-primary" %>
+    <% end %>
+      <br>
+      <hr>
+      <br>
+
+      <h2>Paquetes</h2>
+        <br>
+      <% @pet.paquetes.each do |paquete| %>
+        <tr>
+          <h4><%= paquete.nombre %></h4>
+          <%= paquete.tipo %><br>
+          <%= paquete.descripcion %><br>
+          <% if user_signed_in? %>
+          <br>
+          <%= link_to 'Editar', edit_paquete_path(paquete), :class => "btn btn-primary" %><br><br>
+          <%= link_to 'Eliminar', paquete, method: :delete, data: { confirm: 'Estas seguro?' }, :class => "btn btn-primary" %><br>
+            <% end %>
+        </tr>
+      <% end %>
+  <br>
+  <% if user_signed_in? %>
+  <%= link_to 'Nuevo Paquete', new_paquete_path(:id => @pet.id), :class => "btn btn-primary" %>
+  <% end %>
+
+      <br>
+      <hr>
+      <br>
+
+  <div class="row">
+
+    <div align="center">
+        <h2 style="display:inline">
+          Ubicación
+        </h2>
+        <br>
+        <br>
+      <style type="text/css">
+      /* Set a size for our map container, the Google Map will take up 100% of this container */
+        #map {
+          width: 520px;
+          height: 320px;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+      </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnC-d0W6Z0oVxxvgxYgEW86bXVhWuwnZU"></script>
+
+      <script type="text/javascript">
+          // When the window has finished loading create our google map below
+          google.maps.event.addDomListener(window, 'load', init);
+
+          function init() {
+              // Basic options for a simple Google Map
+              // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+              var mapOptions = {
+                  // How zoomed in you want the map to start at (always required)
+                  zoom: 17,
+
+                  // The latitude and longitude to center the map (always required)
+                  center: new google.maps.LatLng(21.1574278,-100.9345075), // Museo Casa Hidalgo
+
+                  // How you would like to style the map.
+                  // This is where you would paste any style found on Snazzy Maps.
+                  styles: [ {   "featureType":"landscape",    "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":50.2     },      {       "lightness":-34.8     },      {       "gamma":1     }   ] },  {   "featureType":"road.highway",   "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":-19.8      },      {       "lightness":-1.8      },      {       "gamma":1     }   ] },  {   "featureType":"road.arterial",    "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":72.4     },      {       "lightness":-32.6     },      {       "gamma":1     }   ] },  {   "featureType":"road.local",   "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":74.4     },      {       "lightness":-18     },      {       "gamma":1     }   ] },  {   "featureType":"water",    "stylers":[     {       "hue":"#00FFA6"     },      {       "saturation":-63.2      },      {       "lightness":38      },      {       "gamma":1     }   ] },  {   "featureType":"poi",    "stylers":[     {       "hue":"#FFC300"     },      {       "saturation":54.2     },      {       "lightness":-14.4     },      {       "gamma":1     }   ] }]
+              };
+
+
+              // Get the HTML DOM element that will contain your map
+              // We are using a div with id="map" seen below in the <body>
+              var mapElement = document.getElementById('map');
+
+              // Create the Google Map using our element and options defined above
+              var map = new google.maps.Map(mapElement, mapOptions);
+
+              // Let's also add a marker while we're at it
+              var image = 'https://cdn2.iconfinder.com/data/icons/location-map-simplicity/512/museum-128.png'
+              var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(21.15638999999999,-100.93589159999999),
+                  map: map,
+                  title: 'Casa Hidalgo',
+                  icon: image
+              })
+              var marker2 = new google.maps.Marker({
+                  position: new google.maps.LatLng(21.1584295,-100.9353101),
+                  map: map,
+                  title: 'Museo Independencia',
+                  icon: image
+              })
+              var marker3 = new google.maps.Marker({
+                  position: new google.maps.LatLng(21.1574353,-100.9327533),
+                  map: map,
+                  title: 'Casa Museo José Alfredo Jiménez',
+                  icon: image
+              })
+              var marker4 = new google.maps.Marker({
+                  position: new google.maps.LatLng(21.1571429,-100.9353776),
+                  map: map,
+                  title: 'Casa de los Descendientes',
+                  icon: image
+              })
+              var marker5 = new google.maps.Marker({
+                position: new google.maps.LatLng(21.1581235,-100.9346408),
+                map: map,
+                title: 'Museo Bicentenario',
+                icon: image
+              });
+          }
+      </script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnC-d0W6Z0oVxxvgxYgEW86bXVhWuwnZU&callback=initMap">
+      </script>
+
+      <div id="map" style="width: 100%"></div>
+      <br>
+      </div>
+  </div>
+    </div>
+            
+      <br>
+      <hr>
+      <br>
+
+    <div class="col-md-4">
+      <h2>Horarios </h2>
+          <br>
+          <% @pet.horarios.each do |horario| %>
+
+          <%= horario.dia %> ->
+          <%= horario.horai %> -
+          <%= horario.horaf %>
+          <% if user_signed_in? %>
+          <br>
+          <%= link_to 'Editar', edit_horario_path(horario) , :class => "btn btn-primary" %><br><br>
+          <%= link_to 'Eliminar', horario, method: :delete, data: { confirm: 'Estas seguro?' }, :class => "btn btn-primary" %><br>
+          <% end %>
+       <% end %>
+     <br>
+      <% if user_signed_in? %>
+      <%= link_to 'Nuevo Horario', new_horario_path(:id => @pet.id), :class => "btn btn-primary", :style => "color: white;" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4" align="center">
+      <div class="page-header" style="width: 100%" >
+        <div style="text-align:center;width:400px;padding:1em 0; width: 100%" > <h2><a style="text-decoration:none;" href="http://www.zeitverschiebung.net/es/city/4023117"><span >Hora actual en</span><br />Dolores Hidalgo Cuna de la Independencia Nacional, México</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&timezone=America%2FMexico_City" width="100%" height="150" frameborder="0" seamless></iframe> <small>&copy; <a href="http://www.zeitverschiebung.net/es/">Diferencia horaria</a></small> </div>
+
+      </div>
+
+    </div>
+
+    <%- if user_signed_in? %>
+      <h3>Editar éste museo o volver a museos</h3>
+      <%= link_to 'Editar', edit_pet_path(@pet), :class => "btn btn-primary", :style => "color: white" %> |
+      <%= link_to 'Regresar', pets_path, :class => "btn btn-primary", :style => "color: white" %>
+      <hr>
+    <% end -%>
+  </div>
+
+</div>
+
+</div>

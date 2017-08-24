@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Horarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dia</th>
+      <th>Horai</th>
+      <th>Horaf</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @horarios.each do |horario| %>
+      <tr>
+        <td><%= horario.dia %></td>
+        <td><%= horario.horai %></td>
+        <td><%= horario.horaf %></td>
+        <td><%= link_to 'Mostrar', horario %></td>
+        <td><%= link_to 'Editar', edit_horario_path(horario) %></td>
+        <td><%= link_to 'Eliminar', horario, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Horario', new_horario_path %>

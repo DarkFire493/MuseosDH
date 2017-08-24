@@ -1,0 +1,44 @@
+<div id="pagina">
+  <%= form_with(model: respuestum, local: true) do |form| %>
+  <% if respuestum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(respuestum.errors.count, "error") %> prohibited this respuestum from being saved:</h2>
+
+      <ul>
+      <% respuestum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+  <div class="field">
+    <%= form.label :nombre, "Nombre" %>
+    <%= form.text_field :nombre, id: :respuestum_nombre, :class => 'form-control', :placeholder => "Nombre" %>
+  </div>
+  </div>
+
+  <div class="form-group">
+  <div class="field">
+    <%= form.label :correo, "Correo electronico" %>
+    <%= form.text_field :correo, id: :respuestum_correo, :class => 'form-control', :placeholder => "Correo electronico" %>
+  </div>
+  </div>
+
+  <div class="form-group">
+  <div class="field">
+    <%= form.label :descripcion, "Comentario" %>
+    <%= form.text_area :descripcion, id: :respuestum_descripcion,  :class => 'form-control', :rows => "10", :cols => "30" %>
+  </div>
+  </div>
+
+  <div class="field">
+      <%= form.hidden_field :comentario_id, id: :comentario_id, :value => @comentario.id %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit "Comentar", :class => "btn btn-primary", data: { confirm: '¿Realizará un comentario, desea continuar?' } %>
+  </div>
+  <% end %>
+  </div>

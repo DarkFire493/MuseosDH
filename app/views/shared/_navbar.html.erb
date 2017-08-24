@@ -1,0 +1,41 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom:0px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag "http://svgshare.com/i/2is.svg", :class => "nav-logo" %>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= ras_path %>">Realidad Aumentada</a></li>
+        <li ><a href="<%= comentarios_path %>">Comentarios</a></li>
+        <li><a href="<%= events_path %>">Eventos</a></li>
+        <li><a href="<%= efemerides_path %>">Efemérides</a></li>
+        <%- if user_signed_in? %>
+          <li><a href="<%= new_qr_code_path %>">Descuentos</a></li>
+        <% end -%>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <li><a href="<%= new_pet_path %>"> Crear Museo </a></li>
+            <li><a href="<%= destroy_user_session_path%>" data-method="delete"> Salir </a></li>
+        <% end %>
+
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+

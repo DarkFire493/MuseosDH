@@ -1,0 +1,26 @@
+<%- if user_signed_in? %>
+  <div class="container" align="center">
+    <%= form_for :qr_code, url: qr_codes_path do |f| %>
+    <div class="date">
+      <p>
+        <%= f.label :tipo_de_descuento %><br>
+        <%= f.select :tipo_descuento, options_for_select([["Escuela Descuento del 50%-$17.50 (Un sólo Uso)"], ["De Gobierno Descuento del 25%-$26 (Un sólo Uso)"], ["3ra Edad Descuento del 75%-$9"], ["General Descuento del 20%-$28 (Un sólo Uso)"], ["Gratuito (Un sólo Uso)"]]), {}, { class: "form-control" } %>
+      </p>
+      <p>
+        <%= f.submit "Generar Código", :class => "btn btn-primary" %>
+      </p>
+      <br>
+      <hr>
+      <br>
+      <p>
+        <%= f.label :código_manual %><br>
+        <%= f.text_field :tipo_descuento, :class => "form-control" %>
+      </p>
+      <br>
+      <p>
+        <%= f.submit "Generar Código", :class => "btn btn-primary" %>
+      </p>
+      </div>
+    <% end %>
+  </div>
+<% end -%>

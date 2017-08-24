@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dia: MyString
+  horai: 2017-08-13 00:40:21
+  horaf: 2017-08-13 00:40:21
+
+two:
+  dia: MyString
+  horai: 2017-08-13 00:40:21
+  horaf: 2017-08-13 00:40:21

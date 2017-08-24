@@ -1,0 +1,42 @@
+<%= form_with(model: horario, local: true) do |form| %>
+  <% if horario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
+
+      <ul>
+      <% horario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :dia, "Día" %>
+    <%= form.text_field :dia, id: :horario_dia, :class => 'form-control', :placeholder => "Nombre del Día" %>
+  </div>
+  </div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :horai, "Hora de inicio" %>
+    <%= form.time_select :horai, id: :horario_horai, :class => 'form-control' %>
+  </div>
+  </div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :horaf, "Hora de fin" %>
+    <%= form.time_select :horaf, id: :horario_horaf, :class => 'form-control' %>
+  </div>
+  </div>
+
+  <div class="field">
+      <%= form.hidden_field :pet_id, id: :pet_id, :value => @pet.id %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit "Cear", :class => "btn btn-primary", data: { confirm: '¿Creará un horario, desea continuar?' } %>
+  </div>
+<% end %>

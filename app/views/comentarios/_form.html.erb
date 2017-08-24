@@ -1,0 +1,40 @@
+<div id="pagina">
+<%= form_with(model: comentario, local: true) do |form| %>
+  <% if comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :nombre, "Nombre"  %>
+    <%= form.text_field :nombre, id: :comentario_nombre, :class => 'form-control', :placeholder => "Nombre" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :correo, "Correo electronico" %>
+    <%= form.text_field :correo, id: :comentario_correo, :class => 'form-control', :placeholder => "Correo electronico" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :comentario, "Comentario" %>
+    <%= form.text_area :comentario, id: :comentario_comentario,  :class => 'form-control', :rows => "10", :cols => "30"  %>
+  </div>
+</div>
+
+  <div class="actions">
+    <%= form.submit "Comentar", :class => "btn btn-primary", data: { confirm: '¿Realizará un comentario, desea continuar?' } %>
+  </div>
+<% end %>
+  </div>

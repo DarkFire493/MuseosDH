@@ -1,0 +1,2 @@
+class Efemeride < ApplicationRecord
+end

@@ -1,0 +1,181 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="titulos">Museo casa de los descendientes de Hidalgo</h1>
+    <img src="http://www.dolores-hidalgo.com/images/museo-bicentenario-12.jpg?crc=183570146" class="img-responsive" style=" width: 25%">
+    <br>
+
+  </div>
+</div>
+
+<div class="container">
+  
+
+    <div class="col-md-8">
+      <div class="page-header">
+        <h2 style="display:inline"> Descripción </h2>
+        <span class="label label-default">New</span>
+      </div>
+
+      <p class="titulos">En Dolores Hidalgo, Guanajuato, puedes visitar con sólo 15 pesos la casa de los descendientes del Padre de la Patria, Miguel Hidalgo.
+
+Sus paredes encierran algunos aspectos de la vida del cura, como que tuvo dos parejas sentimentales y cuatro hijos.
+
+Este lugar muestra la fe de bautismo del Cura Hidalgo, quien nació el 8 de mayo de 1753 en la Hacienda Corralejo en Pénjamo, Guanajuato, donde su padre era el administrador.</p>
+
+      <br>
+      <hr>
+      <br>
+
+      <h2>Precios </h2>
+      <p>$40 General de Lunes a Vieres</p>
+      <p>Gratis fines de semana</p>
+
+      <br>
+      <hr>
+      <br>
+
+      <h2>Paquetes</h2>
+      <p>No aplica de momento.</p>
+
+      <br>
+      <hr>
+      <br>
+
+      <h2>Realidad Aumentada</h2>
+      <p>Da clic al botón para acceder al apartado.</p>
+
+      <a class="btn btn-default" href="<%= ras2_path %>">Ir</a>
+      <br>
+      <hr>
+      <br>
+
+      <div class="row">
+
+    <div align="center">
+        <h2 style="display:inline">
+          Ubicación
+        </h2>
+        <br>
+        <br>
+            <style type="text/css">
+      /* Set a size for our map container, the Google Map will take up 100% of this container */
+      #map {
+        width: 520px;
+        height: 320px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnC-d0W6Z0oVxxvgxYgEW86bXVhWuwnZU"></script>
+        
+      <script type="text/javascript">
+          // When the window has finished loading create our google map below
+          google.maps.event.addDomListener(window, 'load', init);
+      
+          function init() {
+              // Basic options for a simple Google Map
+              // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+              var mapOptions = {
+                  // How zoomed in you want the map to start at (always required)
+                  zoom: 16,
+
+                  // The latitude and longitude to center the map (always required)
+                  center: new google.maps.LatLng(21.15638999999999,-100.93589159999999), // Museo Casa Hidalgo
+
+                  // How you would like to style the map. 
+                  // This is where you would paste any style found on Snazzy Maps.
+                  styles: [ {   "featureType":"landscape",    "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":50.2     },      {       "lightness":-34.8     },      {       "gamma":1     }   ] },  {   "featureType":"road.highway",   "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":-19.8      },      {       "lightness":-1.8      },      {       "gamma":1     }   ] },  {   "featureType":"road.arterial",    "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":72.4     },      {       "lightness":-32.6     },      {       "gamma":1     }   ] },  {   "featureType":"road.local",   "stylers":[     {       "hue":"#FFAD00"     },      {       "saturation":74.4     },      {       "lightness":-18     },      {       "gamma":1     }   ] },  {   "featureType":"water",    "stylers":[     {       "hue":"#00FFA6"     },      {       "saturation":-63.2      },      {       "lightness":38      },      {       "gamma":1     }   ] },  {   "featureType":"poi",    "stylers":[     {       "hue":"#FFC300"     },      {       "saturation":54.2     },      {       "lightness":-14.4     },      {       "gamma":1     }   ] }]
+              };
+
+
+              // Get the HTML DOM element that will contain your map 
+              // We are using a div with id="map" seen below in the <body>
+              var mapElement = document.getElementById('map');
+
+              // Create the Google Map using our element and options defined above
+              var map = new google.maps.Map(mapElement, mapOptions);
+
+              // Let's also add a marker while we're at it
+              var image = 'https://cdn2.iconfinder.com/data/icons/location-map-simplicity/512/museum-128.png'
+              var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(21.15638999999999,-100.93589159999999),
+                  map: map,
+                  title: 'Snazzy!',
+                  icon: image
+              });
+          }
+      </script>
+      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnC-d0W6Z0oVxxvgxYgEW86bXVhWuwnZU&callback=initMap">
+    </script>
+
+      <div id="map", style="width: 95%", style="height: height: 50%" ></div>
+      </div>
+    </div>
+
+      <br>
+      <hr>
+      <br>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="page-header">
+        <div style="text-align:center;width:400px;padding:1em 0;"> <h2><a style="text-decoration:none;" href="http://www.zeitverschiebung.net/es/city/4023117"><span style="color:gray;">Hora actual en</span><br />Dolores Hidalgo Cuna de la Independencia Nacional, México</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&timezone=America%2FMexico_City" width="100%" height="150" frameborder="0" seamless></iframe> <small style="color:gray;">&copy; <a href="http://www.zeitverschiebung.net/es/" style="color: gray;">Diferencia horaria</a></small> </div>
+
+      </div>
+        <div class="col-md-4">
+      <div class="page-header">
+        <div id="noty_layout__topRight" class="noty_layout">
+            <script>
+              new Noty({
+                text: 'Efemérdes 21 de Agosto',
+                animation: {
+                  open: 'animated bounceInRight', // Animate.css class names
+                  close: 'animated bounceOutRight' // Animate.css class names
+                }
+              }).show();
+
+              new Noty({
+                text: '1842.—Muere Leona Vicario, insurgente mexicana durante la guerra de independencia de México.',
+                animation: {
+                  open: 'animated bounceInRight', // Animate.css class names
+                  close: 'animated bounceOutRight' // Animate.css class names
+                }
+              }).show();
+            </script>
+          </div>
+      </div>
+      <h2>Horairos </h2>
+      <ul>
+        <li>
+          Martes    9:00–17:45
+        </li>
+        <li>
+          Miércoles 9:00–17:45
+        </li>
+        <li>
+          Jueves    9:00–17:45
+        </li>
+        <li>
+          Viernes   9:00–17:45
+        </li>
+        <li>
+          Sábado    9:00–17:45
+        </li>
+        <li>
+          Domingo   9:00–16:45
+        </li>
+        <li>
+          Lunes Cerrado
+        </li>
+      </ul>
+    </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+</div>

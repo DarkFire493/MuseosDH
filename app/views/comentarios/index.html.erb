@@ -1,0 +1,52 @@
+<div class="container" align="center">
+
+    <h2><%= link_to 'Realizar un Comentario', new_comentario_path %></h2>
+
+        <% @comentarios.each do |comentario| %>
+        <br>
+            <div class="row" style="align: left">
+              <div class="col-md-1" >
+                <%= comentario.nombre %> dijo:
+              </div>
+              <div class="col-md-7" >
+                "<%= comentario.comentario %>"
+                <br>
+                  <div class="col-md-10">
+                    <%= comentario.correo %>
+                  </div>
+              <div class="col-md-1">
+                <%= link_to "Responder", new_respuestum_path(:id => comentario.id)  %>
+                <%- if user_signed_in? %>
+                  <%= link_to 'Eliminar', comentario, method: :delete, data: { confirm: '¿Esta seguro de elimiar el comentario?' } %>
+                <% end -%>
+              </div>
+              <br>
+                        
+            <% comentario.respuestum.each do |respuestum| %>
+              <div class="row" style="align: right">
+              <div class="col-md-2">
+               <%= respuestum.nombre %> respondió a <%= comentario.nombre %>:
+              </div>
+
+              <div class="col-md-9" >
+                "<%= respuestum.descripcion %>"
+                <br>
+                <div class="col-md-10">
+                  <%= respuestum.correo %>
+                </div>
+
+                <%- if user_signed_in? %>
+                  <div class="col-md-1">
+                    <%= link_to 'Eliminar', comentario, method: :delete, data: { confirm: '¿Esta seguro de elimiar el comentario?' } %>
+                  </div>
+                  <br>
+                <% end -%>
+            </div>
+          </div>
+          <br>
+            <% end %>
+            </div>
+          </div>
+        <br>
+      <% end %>
+</div>

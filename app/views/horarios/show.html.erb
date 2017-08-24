@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dia:</strong>
+  <%= @horario.dia %>
+</p>
+
+<p>
+  <strong>Hora de iniciio:</strong>
+  <%= @horario.horai %>
+</p>
+
+<p>
+  <strong>Hora de cierre:</strong>
+  <%= @horario.horaf %>
+</p>
+
+<%= link_to 'Editar', edit_horario_path(@horario) %> 

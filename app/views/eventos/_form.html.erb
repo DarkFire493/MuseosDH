@@ -1,0 +1,38 @@
+<%= form_with(model: evento, local: true) do |form| %>
+  <% if evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+
+      <ul>
+      <% evento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :nombre, "Nombre del museo" %>
+    <%= form.text_field :nombre, id: :evento_nombre, :class => 'form-control', :placeholder => "Nombre del Museo" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :fecha, "Fheca fel evento" %>
+    <%= form.datetime_select :fecha, id: :evento_fecha, :class => 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="field">
+    <%= form.label :descripcion, "Descripcion" %>
+    <%= form.text_area :descripcion, id: :evento_descripcion, :class => 'form-control', :placeholder => "Descripcion" %>
+  </div>
+</div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class => "btn btn-primary" %>
+  </div>
+<% end %>

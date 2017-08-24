@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Editar</h1>
+  <div class="row">
+    <div class="col-md-6">
+    <%= render 'form', efemeride: @efemeride %>
+    </div>
+  </div>
+   <p> <%= link_to 'Ver', @efemeride %> |
+   <%= link_to 'Salir', efemerides_path %> </p>
+</div>

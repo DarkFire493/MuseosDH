@@ -1,0 +1,22 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @event.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @event.end %>
+</p>
+
+<%= link_to 'Editar', edit_event_path(@event) %> |
+<%= link_to 'Salir', events_path %>
+
+</div>

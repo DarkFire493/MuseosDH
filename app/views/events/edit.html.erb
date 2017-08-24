@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Evento</h1>
+  <div class="row">
+    <div class="col-md-6">
+    <%= render 'form', event: @event %>
+    </div>
+  </div>
+   <p><%= link_to 'Ver', @event %> |
+   <%= link_to 'Salir', events_path %> </p>
+</div>

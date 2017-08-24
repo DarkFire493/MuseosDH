@@ -1,0 +1,32 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Efemerides del mes</h1>
+
+<table class="table table-striped">
+
+  <tbody>
+    <% @efemerides.each do |efemeride| %>
+      <tr>
+        <h1><%= efemeride.numero %></h1>
+        <br>
+        <%= efemeride.descripcion %><br>
+        <% if user_signed_in? %>
+        <%= link_to 'Mostrar', efemeride %>
+        <%= link_to 'Edit', edit_efemeride_path(efemeride) %>
+        <%= link_to 'Eliminar', efemeride, method: :delete, data: { confirm: '¿Esta seguro?' } %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+<%= link_to 'Nueva Efemeride', new_efemeride_path, :class => "btn btn-primary", :style => "color: white;" %>
+<% end %>
+<br>
+<hr>
+<br>
+</div>
