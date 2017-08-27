@@ -15,6 +15,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( camreader.js )
 Rails.application.config.assets.precompile += %w( copy.js )
-Rails.application.config.assets.precompile += %w( jquery.easing.1.3.js )
-Rails.application.config.assets.precompile += %w( jquery.skitter.min.js )
-Rails.application.config.assets.precompile += %w( skitter.js )
