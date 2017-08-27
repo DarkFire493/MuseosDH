@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <div id="app" >
   <div class="sidebar">
     <section class="cameras">
@@ -18,9 +20,9 @@
         <li class="empty">Nada escaneado de momento</li>
       </ul>
       <transition-group name="scans" tag="ul">
-        <li v-for="scan in scans" :key="scan.date" :title="scan.content" >{{ scan.content }}</li>
+        <li v-for="scan in scans" :key="scan.date" :title="scan.content" id='1' class="js-copytextarea" >{{ scan.content }}</li>
       </transition-group>
-      
+      <button class="js-textareacopybtn" data-id="1">Copiar</button>
     </section>
     <section class="formulario">
       <h2>Formulario</h2>
@@ -49,22 +51,22 @@
 
           <div class="field">
             <%= form.label :descuento %><br>
-            <%= form.text_field :disscount, id: :qr_code_reader_disscount %>
+            <%= form.text_field :disscount, id: :qr_code_reader_disscount, :class => "form-control" %>
           </div>
 
           <div class="field">
             <%= form.label :persona %><br>
-            <%= form.text_field :person, id: :qr_code_reader_person %>
+            <%= form.text_field :person, id: :qr_code_reader_person, :class => "form-control" %>
           </div>
 
           <div class="field">
             <%= form.label :acceso %><br>
-            <%= form.date_select :checkin, id: :qr_code_reader_checkin %>
+            <%= form.date_select :checkin, id: :qr_code_reader_checkin, :class => "form-control" %>
           </div><br>
 
           <div class="actions">
-            <%= form.submit 'Guardar Registro' %><br>
-            <%= link_to 'Regresar', qr_code_readers_path %>
+            <%= form.submit 'Guardar Registro', :class => "btn btn-primary" %><br><br>
+            <%= link_to 'Regresar', qr_code_readers_path, :class => "btn btn-primary", :style => "color: white;" %>
           </div>
         <% end %>
       </div>
@@ -74,8 +76,5 @@
     <video id="preview"></video>
   </div>
 </div>
-<button class="js-textareacopybtn" >Copiar</button>
-      <textarea class="js-copytextarea">Hello I'm some text</textarea>
 <%= javascript_include_tag "camreader.js" %>
 <%= javascript_include_tag "copy.js" %>
-<!-- <script src="assets/camreader.js"></script> -->

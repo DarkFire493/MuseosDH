@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Disscount:</strong>
+  <strong>Descuento:</strong>
   <%= @qr_code_reader.disscount %>
 </p>
 
 <p>
-  <strong>Person:</strong>
+  <strong>Persona:</strong>
   <%= @qr_code_reader.person %>
 </p>
 
 <p>
-  <strong>Checkin:</strong>
+  <strong>Acceso:</strong>
   <%= @qr_code_reader.checkin %>
 </p>
 
-<%= link_to 'Edit', edit_qr_code_reader_path(@qr_code_reader) %> |
-<%= link_to 'Back', qr_code_readers_path %>
+<%= link_to 'Editar', edit_qr_code_reader_path(@qr_code_reader), :class => "btn btn-primary" %> |
+<%= link_to 'Regresar', qr_code_readers_path, :class => "btn btn-primary" %>
