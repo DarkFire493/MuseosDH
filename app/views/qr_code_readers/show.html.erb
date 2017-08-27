@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Disscount:</strong>
+  <%= @qr_code_reader.disscount %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @qr_code_reader.person %>
+</p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @qr_code_reader.checkin %>
+</p>
+
+<%= link_to 'Edit', edit_qr_code_reader_path(@qr_code_reader) %> |
+<%= link_to 'Back', qr_code_readers_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disscount: MyString
+  person: MyString
+  checkin: 2017-08-26
+
+two:
+  disscount: MyString
+  person: MyString
+  checkin: 2017-08-26

@@ -1,0 +1,2 @@
+class QrCodeReader < ApplicationRecord
+end

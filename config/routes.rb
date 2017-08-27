@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qr_code_readers
   resources :efemerides
   resources :events
   resources :eventos

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824164513) do
+ActiveRecord::Schema.define(version: 20170826214146) do
 
   create_table "comentarios", force: :cascade do |t|
     t.string "nombre"
@@ -86,6 +86,14 @@ ActiveRecord::Schema.define(version: 20170824164513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_precios_on_pet_id"
+  end
+
+  create_table "qr_code_readers", force: :cascade do |t|
+    t.string "disscount"
+    t.string "person"
+    t.date "checkin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "respuesta", force: :cascade do |t|

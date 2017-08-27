@@ -1,0 +1,81 @@
+<div id="app" >
+  <div class="sidebar">
+    <section class="cameras">
+      <h2>Camáras disponibles</h2>
+      <ul>
+        <li v-if="cameras.length === 0" class="empty">No se encontraron cámaras</li>
+        <li v-for="camera in cameras">
+          <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+          <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+            <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+          </span>
+        </li>
+      </ul>
+    </section>
+    <section class="scans">
+      <h2>Descuento Escaneado</h2>
+      <ul v-if="scans.length === 0" >
+        <li class="empty">Nada escaneado de momento</li>
+      </ul>
+      <transition-group name="scans" tag="ul">
+        <li v-for="scan in scans" :key="scan.date" :title="scan.content" >{{ scan.content }}</li>
+      </transition-group>
+      
+    </section>
+    <section class="formulario">
+      <h2>Formulario</h2>
+
+      <!-- <input id="clickMe" type="button" value="clickme" onclick="click();" />
+
+      <script >
+        $(".myLi").click(function(){
+          document.getElementsByTagName('text_field').value=this.value;
+        })        
+      </script> -->
+
+      <div id="dissc-form">
+        <%= form_with(model: qr_code_reader, local: true) do |form| %>
+          <% if qr_code_reader.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(qr_code_reader.errors.count, "error") %> prohibited this qr_code_reader from being saved:</h2>
+
+              <ul>
+              <% qr_code_reader.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= form.label :descuento %><br>
+            <%= form.text_field :disscount, id: :qr_code_reader_disscount %>
+          </div>
+
+          <div class="field">
+            <%= form.label :persona %><br>
+            <%= form.text_field :person, id: :qr_code_reader_person %>
+          </div>
+
+          <div class="field">
+            <%= form.label :acceso %><br>
+            <%= form.date_select :checkin, id: :qr_code_reader_checkin %>
+          </div><br>
+
+          <div class="actions">
+            <%= form.submit 'Guardar Registro' %><br>
+            <%= link_to 'Regresar', qr_code_readers_path %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+  <div class="preview-container">
+    <video id="preview"></video>
+  </div>
+</div>
+<button class="js-textareacopybtn" >Copiar</button>
+      <textarea class="js-copytextarea">Hello I'm some text</textarea>
+<%= javascript_include_tag "camreader.js" %>
+<%= javascript_include_tag "copy.js" %>
+<!-- <script src="assets/camreader.js"></script> -->
