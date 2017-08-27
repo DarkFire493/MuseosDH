@@ -23,7 +23,8 @@
         <li><a href="<%= events_path %>">Eventos</a></li>
         <li><a href="<%= efemerides_path %>">Efemérides</a></li>
         <%- if user_signed_in? %>
-          <li><a href="<%= new_qr_code_path %>">Descuentos</a></li>
+          <li><a href="<%= new_qr_code_path %>">Dar Descuentos</a></li>
+          <li><a href="<%= qr_code_readers_path %>">Registrar Descuentos</a></li>
         <% end -%>
       </ul>
 
